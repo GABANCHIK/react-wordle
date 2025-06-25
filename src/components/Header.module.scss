@@ -1,4 +1,37 @@
 .header {
-    height: 70px;
-    color: red;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 60px;
+    color: white;
+    background-color: #202020;
+    font-weight: 600;
+    font-size: 35px;
+    &-left {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 100%;
+        margin-left: 24px;
+        width: 300px;
+    }
+    &-right {
+        display: flex;
+        justify-content: space-between;
+        height: 100%;
+        width: 100px;
+        margin-right: 24px;
+    }
+    a {
+        display: flex;
+        padding: 5px;
+        align-items: center;
+        text-decoration: none;
+        color: white;
+        display: flex;
+        justify-content: space-between;
+        &:hover {
+            background-color: grey;
+        }
+    }
 }
