@@ -13,18 +13,18 @@ const getLetterClass = (color) => {
     }
 };
 
-const TableRow = ({ word = "", result = [] }) => {
+const TableRow = ({ word = "", rowLetters = [] }) => {
     const letter0 = word[0] || "";
     const letter1 = word[1] || "";
     const letter2 = word[2] || "";
     const letter3 = word[3] || "";
     const letter4 = word[4] || "";
 
-    const class0 = `${styles.letter} ${getLetterClass(result[0])}`;
-    const class1 = `${styles.letter} ${getLetterClass(result[1])}`;
-    const class2 = `${styles.letter} ${getLetterClass(result[2])}`;
-    const class3 = `${styles.letter} ${getLetterClass(result[3])}`;
-    const class4 = `${styles.letter} ${getLetterClass(result[4])}`;
+    const class0 = `${styles.letter} ${getLetterClass(rowLetters[0])}`;
+    const class1 = `${styles.letter} ${getLetterClass(rowLetters[1])}`;
+    const class2 = `${styles.letter} ${getLetterClass(rowLetters[2])}`;
+    const class3 = `${styles.letter} ${getLetterClass(rowLetters[3])}`;
+    const class4 = `${styles.letter} ${getLetterClass(rowLetters[4])}`;
 
     return (
         <div className={styles.row}>
