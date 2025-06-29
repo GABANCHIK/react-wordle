@@ -1,0 +1,101 @@
+.settings,
+.settings-light {
+    color: white;
+    padding: 10px;
+    font-size: 1.5rem;
+    &-light {
+        color: #202020;
+    }
+}
+.head {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.svg {
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+    color: white;
+
+    &-light {
+        color: #202020;
+    }
+}
+
+.settingsContent {
+    & > div {
+        padding: 10px;
+        border-bottom: 1px solid grey;
+    }
+}
+.category {
+    display: flex;
+    justify-content: space-between;
+}
+.switcher {
+    display: flex;
+}
+
+input {
+    display: none;
+}
+
+.display {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+label {
+    width: 80px;
+    height: 40px;
+    border-radius: 999px;
+    background: #f3f3f3;
+    box-shadow: 10px 10px 30px rgba(0, 0, 0, 0.05) inset;
+    cursor: pointer;
+    position: relative;
+    transition: all 0.3s ease;
+}
+
+.circle {
+    width: 30px;
+    height: 30px;
+    border-radius: 999px;
+    background: rgb(71, 71, 71);
+    box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.05),
+        -1px -1px 3px rgba(0, 0, 0, 0.05) inset;
+    position: absolute;
+    top: 50%;
+    left: 0%;
+    transform: translate(20%, -50%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    transition: all 0.3s ease;
+}
+
+input[type="checkbox"]:checked + .display label {
+    background: #1f1f21;
+    box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5) inset;
+}
+
+input[type="checkbox"]:checked + .display label .circle {
+    left: 100%;
+    transform: translate(-120%, -50%);
+    background: rgb(255, 40, 40);
+    box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.5),
+        -10px -10px 30px rgba(0, 0, 0, 0.5) inset;
+}
+
+label:active .circle {
+    width: 30px;
+}
+
+.description {
+    padding-top: 20px;
+}
+

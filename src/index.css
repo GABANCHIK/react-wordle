@@ -1,6 +1,7 @@
 body {
-  margin: 0;
-  font-family: "Pirata One";
-  font-weight: 400;
-  font-style: normal;
+    margin: 0;
+    font-family: "Pirata One";
+    font-weight: 400;
+    font-style: normal;
+    overflow: hidden;
 }

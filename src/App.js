@@ -3,7 +3,6 @@ import Header from "./components/Header";
 import Playground from "./components/Playground";
 
 const App = () => {
-
     return (
         <div>
             <Header />

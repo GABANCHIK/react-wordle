@@ -3,16 +3,20 @@
     margin-top: 50px;
     width: 80%;
     height: 100px;
-    color: white;
+    color: rgb(255, 255, 255);
     justify-content: center;
 
     .row {
         display: flex;
         justify-content: center;
     }
+
     .letter,
     .backspace,
-    .enter {
+    .enter,
+    .letter-light,
+    .backspace-light,
+    .enter-light {
         margin: 5px;
         width: 50px;
         height: 50px;
@@ -23,21 +27,39 @@
         font-weight: bold;
         font-size: 28px;
         border-radius: 20%;
+        color: white;
+
         &:hover {
-            background-color: rgb(129, 131, 132);
+            background-color: grey;
         }
     }
+    .letter-light,
+    .backspace-light,
+    .enter-light {
+        color: #202020;
+        background-color: white;
+        border: 2px solid #a0a0a0;
+
+        &:hover {
+            background-color: #f0f0f0;
+        }
+    }
+
     .enter,
-    .backspace {
+    .enter-light,
+    .backspace,
+    .backspace-light {
         width: 70px;
     }
 
     .semi-wrong-letter {
         background-color: rgb(184, 184, 45);
     }
+
     .correct-letter {
         background-color: rgb(87, 143, 87);
     }
+
     .wrong-letter {
         background-color: #6e6e6e;
     }

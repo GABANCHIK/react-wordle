@@ -38,7 +38,7 @@ const playgroundSlice = createSlice({
             }
         },
 
-        confirmWordHandler(state, action) {
+        confirmWordHandler(state) {
             const currentRow = state.rows[state.currentRowIndex];
 
             if (

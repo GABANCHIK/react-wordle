@@ -1,4 +1,5 @@
-.header {
+.header,
+.header-light {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -7,6 +8,11 @@
     background-color: #202020;
     font-weight: 600;
     font-size: 35px;
+    &-light {
+        background-color: #868686;
+        color: #202020;
+        border-bottom: 1px solid #202020;
+    }
     &-left {
         display: flex;
         align-items: center;
@@ -34,9 +40,14 @@
             background-color: grey;
         }
     }
-    svg {
-        height: 60px;
+    .svg {
         width: 50px;
+        height: 60px;
+        cursor: pointer;
+        color: white;
+
+        &-light {
+            color: #202020;
+        }
     }
 }
-
