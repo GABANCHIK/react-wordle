@@ -126,7 +126,6 @@ const playgroundSlice = createSlice({
             );
 
             state.hintLetter = unusedLetters[randomIndex];
-            console.log("Підказка — буква:", state.hintLetter);
         },
         toggleHintVisibility(state) {
             state.isHintVisible = !state.isHintVisible;

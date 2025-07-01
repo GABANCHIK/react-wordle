@@ -1,7 +1,7 @@
 import { useDispatch, useSelector } from "react-redux";
 import styles from "./Settings.module.scss";
-import { settingsActions } from "../store/settings-slice";
-import Modal from "./UI/Modal";
+import { settingsActions } from "../../store/settings-slice";
+import Modal from "../UI/Modal";
 
 const Settings = () => {
     const isDarkMode = useSelector((state) => state.settings.isDarkMode);

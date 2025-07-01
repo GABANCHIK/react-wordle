@@ -3,9 +3,9 @@ import KeyBoard from "./Keyboard";
 import Table from "./Table";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { fetchCorrectWord } from "../store/playground-slice";
-import Settings from "./Settings";
-import Hint from "./Hint";
+import { fetchCorrectWord } from "../../store/playground-slice";
+import Settings from "../Header/Settings";
+import Hint from "../Header/Hint";
 
 const Playground = () => {
     const dispatchAction = useDispatch();

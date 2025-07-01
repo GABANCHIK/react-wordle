@@ -2,7 +2,7 @@ import { useSelector } from "react-redux";
 import styles from "./Table.module.scss";
 import TableRow from "./TableRow";
 
-const Table = (props) => {
+const Table = () => {
     const rows = useSelector((state) => state.playground.rows);
     const rowLetters = useSelector((state) => state.playground.rowLetters);
     return (

@@ -1,6 +1,6 @@
 import { useDispatch, useSelector } from "react-redux";
 import styles from "./Keyboard.module.scss";
-import { playgroundActions } from "../store/playground-slice";
+import { playgroundActions } from "../../store/playground-slice";
 import { useEffect } from "react";
 
 const FIRST_LETTER_ROW = ["Q", "W", "E", "R", "T", "Y", "U", "I", "O", "P"];

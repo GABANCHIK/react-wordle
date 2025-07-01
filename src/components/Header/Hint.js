@@ -1,7 +1,7 @@
 import styles from "./Hint.module.scss";
-import Modal from "./UI/Modal";
+import Modal from "../UI/Modal";
 import { useDispatch, useSelector } from "react-redux";
-import { playgroundActions } from "../store/playground-slice";
+import { playgroundActions } from "../../store/playground-slice";
 
 const Hint = () => {
     const dispatchAction = useDispatch();
@@ -12,16 +12,34 @@ const Hint = () => {
         dispatchAction(playgroundActions.unlockHintHandler());
     };
     const hintLetter = useSelector((state) => state.playground.hintLetter);
+    const isDarkMode = useSelector((state) => state.settings.isDarkMode);
     return (
         <Modal onClose={toggleHintVisibility}>
-            <div className={styles.hint}>
+            <div
+                className={`${isDarkMode ? styles.hint : styles["hint-light"]}`}
+            >
                 <div>
-                    <div>HINT LETTER:</div>
-                    <div className={styles["hint-letter"]}>{hintLetter}</div>
-                    <button onClick={unlockHintHandler}>UNLOCK HINT</button>
+                    <div
+                        className={`${styles.description} ${
+                            !isDarkMode ? styles["description-light"] : ""
+                        }`}
+                    >
+                        HINT LETTER:
+                    </div>
+                    <div
+                        className={`${styles["hint-letter"]} ${
+                            !isDarkMode ? styles["hint-letter-light"] : ""
+                        }`}
+                    >
+                        {hintLetter}
+                    </div>
+                    <button onClick={unlockHintHandler} disabled={hintLetter}>UNLOCK HINT</button>
                 </div>
                 <div onClick={toggleHintVisibility}>
                     <svg
+                        className={`${styles.svg} ${
+                            !isDarkMode ? styles["svg-light"] : ""
+                        }`}
                         fill="currentColor"
                         viewBox="0 0 24 24"
                         xmlns="http://www.w3.org/2000/svg"

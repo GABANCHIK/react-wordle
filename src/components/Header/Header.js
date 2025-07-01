@@ -1,7 +1,7 @@
 import { useDispatch, useSelector } from "react-redux";
 import styles from "./Header.module.scss";
-import { settingsActions } from "../store/settings-slice";
-import { playgroundActions } from "../store/playground-slice";
+import { settingsActions } from "../../store/settings-slice";
+import { playgroundActions } from "../../store/playground-slice";
 const Header = () => {
     const dispatchAction = useDispatch();
     const toggleSettingsVisibility = (event) => {
