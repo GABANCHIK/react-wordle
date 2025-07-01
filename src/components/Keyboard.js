@@ -8,6 +8,9 @@ const SECOUND_LETTER_ROW = ["A", "S", "D", "F", "G", "H", "J", "K", "L"];
 const THIRD_LETTER_ROW = ["Z", "X", "C", "V", "B", "N", "M"];
 
 const KeyBoard = () => {
+    const isMechanicalKeyboardActive = useSelector(
+        (state) => state.settings.isMechanicalKeyboardActive
+    );
     const dispatchAction = useDispatch();
     const clickLetterHandler = (event) => {
         dispatchAction(
@@ -32,26 +35,27 @@ const KeyBoard = () => {
             return styles["wrong-letter"];
         return "";
     };
-
     useEffect(() => {
-        const handleKeyDown = (event) => {
-            const key = event.key.toUpperCase();
+        if (isMechanicalKeyboardActive) {
+            const handleKeyDown = (event) => {
+                const key = event.key.toUpperCase();
 
-            if (key === "ENTER") {
-                dispatchAction(playgroundActions.confirmWordHandler());
-            } else if (key === "BACKSPACE") {
-                dispatchAction(playgroundActions.removeLetterHandler());
-            } else if (/^[A-Z]$/.test(key)) {
-                dispatchAction(playgroundActions.addLetterHandler(key));
-            }
-        };
+                if (key === "ENTER") {
+                    dispatchAction(playgroundActions.confirmWordHandler());
+                } else if (key === "BACKSPACE") {
+                    dispatchAction(playgroundActions.removeLetterHandler());
+                } else if (/^[A-Z]$/.test(key)) {
+                    dispatchAction(playgroundActions.addLetterHandler(key));
+                }
+            };
 
-        window.addEventListener("keydown", handleKeyDown);
+            window.addEventListener("keydown", handleKeyDown);
 
-        return () => {
-            window.removeEventListener("keydown", handleKeyDown);
-        };
-    }, [dispatchAction]);
+            return () => {
+                window.removeEventListener("keydown", handleKeyDown);
+            };
+        }
+    }, [dispatchAction, isMechanicalKeyboardActive]);
 
     const isDarkMode = useSelector((state) => state.settings.isDarkMode);
     return (

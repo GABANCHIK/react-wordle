@@ -3,6 +3,7 @@ import { createSlice } from "@reduxjs/toolkit";
 const initialState = {
     isSettingsVisible: false,
     isDarkMode: true,
+    isMechanicalKeyboardActive: true,
 };
 
 const settingsSlice = createSlice({
@@ -18,6 +19,9 @@ const settingsSlice = createSlice({
         setTheme(state, action) {
             state.isDarkMode = action.payload;
         },
+        toggleKeyboardHandler (state) {
+            state.isMechanicalKeyboardActive = !state.isMechanicalKeyboardActive;
+        }
     },
 });
 

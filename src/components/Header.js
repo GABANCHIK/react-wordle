@@ -1,11 +1,16 @@
 import { useDispatch, useSelector } from "react-redux";
 import styles from "./Header.module.scss";
 import { settingsActions } from "../store/settings-slice";
+import { playgroundActions } from "../store/playground-slice";
 const Header = () => {
     const dispatchAction = useDispatch();
     const toggleSettingsVisibility = (event) => {
         event.preventDefault();
         dispatchAction(settingsActions.toggleSettingsVisibility());
+    };
+    const toggleHintVisibilityHandler = (event) => {
+        event.preventDefault();
+        dispatchAction(playgroundActions.toggleHintVisibility());
     };
     const isDarkMode = useSelector((state) => state.settings.isDarkMode);
     return (
@@ -14,7 +19,7 @@ const Header = () => {
         >
             <div className={styles["header-left"]}>VOLARBEBE WORDLE</div>
             <div className={styles["header-right"]}>
-                <a href="/">
+                <a href="/" onClick={toggleHintVisibilityHandler}>
                     <svg
                         className={`${styles.svg} ${
                             !isDarkMode ? styles["svg-light"] : ""

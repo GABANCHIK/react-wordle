@@ -16,6 +16,9 @@ const initialState = {
         .map(() => Array(5).fill("")),
     currentRowIndex: 0,
     lineAmount: 0,
+    isHintUsed: false,
+    hintLetter: "",
+    isHintVisible: false,
 };
 
 const playgroundSlice = createSlice({
@@ -101,6 +104,32 @@ const playgroundSlice = createSlice({
                 (el) => el === ""
             ).length;
             currentRow[currentRow.length - emptyLettersAmount - 1] = "";
+        },
+        unlockHintHandler(state) {
+            if (state.isHintUsed) return;
+            const greenLetters = state.keyboardLetters.green;
+            const yellowLetters = state.keyboardLetters.yellow;
+            const includedLetters = [...greenLetters, ...yellowLetters];
+            const correctWordArray = state.correctWord.split("");
+            state.isHintUsed = true;
+
+            const unusedLetters = correctWordArray.filter(
+                (letter) => !includedLetters.includes(letter)
+            );
+
+            if (unusedLetters.length === 0) {
+                return;
+            }
+
+            const randomIndex = Math.floor(
+                Math.random() * unusedLetters.length
+            );
+
+            state.hintLetter = unusedLetters[randomIndex];
+            console.log("Підказка — буква:", state.hintLetter);
+        },
+        toggleHintVisibility(state) {
+            state.isHintVisible = !state.isHintVisible;
         },
     },
     extraReducers: (builder) => {

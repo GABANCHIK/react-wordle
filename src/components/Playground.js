@@ -4,9 +4,8 @@ import Table from "./Table";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchCorrectWord } from "../store/playground-slice";
-import Modal from "./UI/Modal";
 import Settings from "./Settings";
-import { settingsActions } from "../store/settings-slice";
+import Hint from "./Hint";
 
 const Playground = () => {
     const dispatchAction = useDispatch();
@@ -15,9 +14,7 @@ const Playground = () => {
     const isSettingsVisible = useSelector(
         (state) => state.settings.isSettingsVisible
     );
-    const toggleSettingsVisibility = () => {
-        dispatchAction(settingsActions.toggleSettingsVisibility());
-    };
+    const isHintVisible = useSelector((state) => state.playground.isHintVisible);
     useEffect(() => {
         dispatchAction(fetchCorrectWord());
     }, [dispatchAction]);
@@ -27,11 +24,8 @@ const Playground = () => {
         <div className={styles.back}>
             <Table />
             <KeyBoard />
-            {isSettingsVisible && (
-                <Modal onClose={toggleSettingsVisibility}>
-                    <Settings />
-                </Modal>
-            )}
+            {isHintVisible && <Hint />}
+            {isSettingsVisible && <Settings />}
         </div>
     );
 };
